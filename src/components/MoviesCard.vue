@@ -1,29 +1,27 @@
 <template>
-  <div>
-    <v-row>
-      <v-col cols="12" sm="6" offset-sm="3">
-        <v-card>
-          <v-list two-line subheader>
-            <v-list-item v-for="movie in movies" :key="movie.id" link>
-              <v-list-item-avatar>
-                <v-icon>mdi-gift-outline</v-icon>
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <v-list-item-title>{{ movie.name }}</v-list-item-title>
-                <v-list-item-subtitle>{{ movie.movieUrl }}</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-card>
+  <v-container>
+    <v-row justify="center">
+      <v-col md="1">
+        <v-btn to="new" fab>
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+      </v-col>
+      <v-col md="auto">
+        <v-data-table :items="movies" :headers="headers">
+          <template v-slot:item.movieUrl="{ item }">
+            <video :src="item.movieUrl" width="160" height="90" style="margin: 12px" controls></video>
+          </template>
+        </v-data-table>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">
   import { Vue, Component } from 'nuxt-property-decorator'
+  import { DataTableHeader } from '@/types/vuetify'
   import 'vue-apollo'
-  import movies from '~/apollo/queries/movies.gql'
+  import movies from '@/apollo/queries/movies.gql'
 
   interface Movie {
     id: String
@@ -40,6 +38,14 @@
     }
   })
   export default class MoviesCard extends Vue {
-    movies: Movie[] = []
+    movies: Movie[] = [];
+
+    get headers(): DataTableHeader[] {
+      return [
+        { text: 'ID', value: 'id' },
+        { text: 'Name', value: 'name' },
+        { text: 'Preview', value: 'movieUrl' }
+      ]
+    }
   }
 </script>
