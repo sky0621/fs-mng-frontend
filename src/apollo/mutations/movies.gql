@@ -1,0 +1,5 @@
+mutation createMovie($object: MovieInput!) {
+  createMovie(input: $object) {
+    id
+  }
+}
