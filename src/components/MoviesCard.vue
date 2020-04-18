@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-col md="1">
-        <v-btn to="new" fab>
+        <v-btn @click="move" fab>
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-col>
@@ -21,22 +21,16 @@
 </template>
 
 <script lang="ts">
-  import { Vue, Component } from 'nuxt-property-decorator'
+  import {Vue, Component, Prop, Emit} from 'nuxt-property-decorator'
   import { DataTableHeader } from '@/types/vuetify'
   import 'vue-apollo'
   import movies from '@/apollo/queries/movies.gql'
   import { Movie } from '~/gql-types';
 
-  @Component({
-    apollo: {
-      movies: {
-        prefetch: true,
-        query: movies
-      }
-    }
-  })
+  @Component({})
   export default class MoviesCard extends Vue {
-    movies: Movie[] = [];
+    @Prop({ default: () => {} })
+    readonly movies!: Movie[]
 
     get headers(): DataTableHeader[] {
       return [
@@ -46,5 +40,9 @@
         { text: 'Scale', value: 'scale' }
       ]
     }
+
+    @Emit('move')
+    move(): void {}
+
   }
 </script>

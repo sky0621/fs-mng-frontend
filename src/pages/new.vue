@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MovieForm />
+    <MovieForm @success="moveToIndex" @cancel="moveToIndex" />
   </div>
 </template>
 
@@ -12,5 +12,9 @@
   @Component({
     components: { MovieForm }
   })
-  export default class NewPage extends Vue {}
+  export default class NewPage extends Vue {
+    moveToIndex(): void {
+      this.$router.push('/')
+    }
+  }
 </script>
