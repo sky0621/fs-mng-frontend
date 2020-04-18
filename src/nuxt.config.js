@@ -30,7 +30,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['@/plugins/filter.ts'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -57,7 +57,7 @@ export default {
         httpEndpoint: 'http://localhost:5050/query'
       }
     },
-    errorHandler: '~/plugins/apollo-error-handler.js'
+    errorHandler: '~/plugins/apollo-error-handler.ts'
   },
   /*
    ** vuetify module configuration

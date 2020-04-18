@@ -11,6 +11,9 @@
           <template v-slot:item.movieUrl="{ item }">
             <video :src="item.movieUrl" width="160" height="90" style="margin: 12px" controls></video>
           </template>
+          <template v-slot:item.scale="{ item }">
+            {{ item.scale | scale }}
+          </template>
         </v-data-table>
       </v-col>
     </v-row>
@@ -22,12 +25,7 @@
   import { DataTableHeader } from '@/types/vuetify'
   import 'vue-apollo'
   import movies from '@/apollo/queries/movies.gql'
-
-  interface Movie {
-    id: String
-    name: String
-    movieUrl: String
-  }
+  import { Movie } from '~/gql-types';
 
   @Component({
     apollo: {
@@ -44,7 +42,8 @@
       return [
         { text: 'ID', value: 'id' },
         { text: 'Name', value: 'name' },
-        { text: 'Preview', value: 'movieUrl' }
+        { text: 'Preview', value: 'movieUrl' },
+        { text: 'Scale', value: 'scale' }
       ]
     }
   }
