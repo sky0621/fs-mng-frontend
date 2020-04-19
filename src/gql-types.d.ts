@@ -35,7 +35,7 @@ export type Mutation = {
    __typename?: 'Mutation';
   noop?: Maybe<NoopPayload>;
   /** 動画をアップロード */
-  createMovie: Scalars['ID'];
+  createMovie?: Maybe<MutationResponse>;
 };
 
 
@@ -46,6 +46,11 @@ export type MutationNoopArgs = {
 
 export type MutationCreateMovieArgs = {
   input: MovieInput;
+};
+
+export type MutationResponse = {
+   __typename?: 'MutationResponse';
+  id?: Maybe<Scalars['ID']>;
 };
 
 export type Node = {
