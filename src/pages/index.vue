@@ -5,26 +5,26 @@
 </template>
 
 <script lang="ts">
-  import { Vue, Component } from 'nuxt-property-decorator'
-  import 'vue-apollo'
-  import MoviesCard from '~/components/MoviesCard.vue'
-  import movies from "~/apollo/queries/movies.gql";
-  import { Movie } from '~/gql-types';
+import { Vue, Component } from 'nuxt-property-decorator'
+import 'vue-apollo'
+import MoviesCard from '~/components/MoviesCard.vue'
+import movies from '~/apollo/queries/movies.gql'
+import { Movie } from '~/gql-types'
 
-  @Component({
-    components: { MoviesCard },
-    apollo: {
-      movies: {
-        prefetch: true,
-        query: movies
-      }
-    }
-  })
-  export default class IndexPage extends Vue {
-    private readonly movies: Movie[] = []
-
-    moveToNew(): void {
-      this.$router.push('/new')
+@Component({
+  components: { MoviesCard },
+  apollo: {
+    movies: {
+      prefetch: true,
+      query: movies
     }
   }
+})
+export default class IndexPage extends Vue {
+  private readonly movies: Movie[] = []
+
+  moveToNew(): void {
+    this.$router.push('/new')
+  }
+}
 </script>

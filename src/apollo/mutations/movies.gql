@@ -1,4 +1,4 @@
-mutation createMovie($object: MovieInput!) {
+mutation CreateMovie($object: MovieInput!) {
   createMovie(input: $object) {
     id
   }
