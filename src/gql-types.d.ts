@@ -6,6 +6,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  Time: any;
   /** 動画アップロード用 */
   Upload: any;
 };
@@ -20,6 +21,8 @@ export type Movie = Node & {
   movieUrl: Scalars['String'];
   /** 秒数 */
   scale: Scalars['Int'];
+  /** 視聴履歴 */
+  viewingHistories?: Maybe<Array<ViewingHistory>>;
 };
 
 export type MovieInput = {
@@ -36,6 +39,8 @@ export type Mutation = {
   noop?: Maybe<NoopPayload>;
   /** 動画をアップロード */
   createMovie?: Maybe<MutationResponse>;
+  /** 視聴履歴の記録 */
+  recordViewingHistory?: Maybe<MutationResponse>;
 };
 
 
@@ -46,6 +51,11 @@ export type MutationNoopArgs = {
 
 export type MutationCreateMovieArgs = {
   input: MovieInput;
+};
+
+
+export type MutationRecordViewingHistoryArgs = {
+  input: RecordViewingHistoryInput;
 };
 
 export type MutationResponse = {
@@ -70,6 +80,10 @@ export type Query = {
    __typename?: 'Query';
   node?: Maybe<Node>;
   movies: Array<Movie>;
+  viewer: Viewer;
+  viewers: Array<Viewer>;
+  /** 視聴履歴一覧 */
+  viewingHistories: Array<ViewingHistory>;
 };
 
 
@@ -77,4 +91,45 @@ export type QueryNodeArgs = {
   id: Scalars['ID'];
 };
 
+
+export type QueryViewerArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type QueryViewingHistoriesArgs = {
+  userId?: Maybe<Scalars['ID']>;
+  movieId?: Maybe<Scalars['ID']>;
+};
+
+export type RecordViewingHistoryInput = {
+  /** 視聴者ID */
+  userId: Scalars['ID'];
+  /** 動画ID */
+  movieId: Scalars['ID'];
+};
+
+
+
+export type Viewer = Node & {
+   __typename?: 'Viewer';
+  /** UUID */
+  id: Scalars['ID'];
+  /** 名前 */
+  name: Scalars['String'];
+  /** ニックネーム */
+  nickname?: Maybe<Scalars['String']>;
+};
+
+export type ViewingHistory = Node & {
+   __typename?: 'ViewingHistory';
+  /** UUID */
+  id: Scalars['ID'];
+  /** 視聴者 */
+  viewer: Viewer;
+  /** 動画 */
+  movie: Movie;
+  /** 視聴日時 */
+  createdAt: Scalars['Time'];
+};
 

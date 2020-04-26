@@ -1,0 +1,7 @@
+query viewers {
+  viewers {
+    id
+    name
+    nickname
+  }
+}

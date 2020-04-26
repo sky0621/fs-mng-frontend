@@ -1,0 +1,12 @@
+query viewingHistories($userId: ID, $movieId: ID) {
+  viewingHistories(userId: $userId, movieId: $movieId) {
+    id
+    viewer {
+      id
+    }
+    movie {
+      id
+    }
+    createdAt
+  }
+}
