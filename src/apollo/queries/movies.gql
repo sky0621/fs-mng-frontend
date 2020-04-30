@@ -4,5 +4,15 @@ query movies {
     name
     movieUrl
     scale
+    viewingHistories {
+      id
+      viewer {
+        id
+      }
+      movie {
+        id
+      }
+      createdAt
+    }
   }
 }
