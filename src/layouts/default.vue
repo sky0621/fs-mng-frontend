@@ -73,9 +73,14 @@ export default {
       fixed: false,
       items: [
         {
+          icon: 'mdi-home',
+          title: 'Top',
+          to: '/'
+        },
+        {
           icon: 'mdi-movie',
           title: 'Movie',
-          to: '/'
+          to: '/movie'
         },
         {
           icon: 'mdi-face',

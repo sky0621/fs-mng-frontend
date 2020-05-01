@@ -14,7 +14,7 @@ import CreateMovie from '~/apollo/mutations/movies.gql'
 @Component({
   components: { MovieForm }
 })
-export default class NewPage extends Vue {
+export default class MovieNewPage extends Vue {
   async save(input: MovieInput) {
     try {
       const res = await this.$apollo.mutate({
@@ -29,7 +29,7 @@ export default class NewPage extends Vue {
       })
       if (res) {
         console.log(res)
-        await this.$router.push('/')
+        await this.$router.push('/movie')
       } else {
         console.log('no res')
       }
@@ -40,7 +40,7 @@ export default class NewPage extends Vue {
   }
 
   moveToIndex(): void {
-    this.$router.push('/')
+    this.$router.push('/movie')
   }
 }
 </script>

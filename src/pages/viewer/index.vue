@@ -20,7 +20,7 @@ import { Viewer } from '~/gql-types'
     }
   }
 })
-export default class IndexPage extends Vue {
+export default class ViewerIndexPage extends Vue {
   private readonly viewers: Viewer[] = []
 }
 </script>
