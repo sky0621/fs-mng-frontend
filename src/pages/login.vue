@@ -9,8 +9,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 export default class LoginPage extends Vue {
   public beforeCreate() {
     if (process.client) {
-      console.log(this)
-      // this.$auth.loginWith('auth0')
+      this.$auth.loginWith('auth0')
     }
   }
 }
