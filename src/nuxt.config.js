@@ -58,6 +58,11 @@ export default {
         httpEndpoint: 'http://localhost:5050/query'
       }
     },
+    defaultOptions: {
+      $query: {
+        fetchPolicy: 'network-only'
+      }
+    },
     errorHandler: '~/plugins/apollo-error-handler.ts'
   },
   /*
@@ -109,5 +114,10 @@ export default {
      ** You can extend webpack config here
      */
     // extend(config, ctx) {}
+  },
+  typescript: {
+    typeCheck: {
+      eslint: true
+    }
   }
 }
