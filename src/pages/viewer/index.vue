@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <ViewersCard :viewers="viewers" />
-  </div>
+  <ViewersCard :viewers="viewers" />
 </template>
 
 <script lang="ts">

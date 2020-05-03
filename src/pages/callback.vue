@@ -1,5 +1,9 @@
 <template>
-  <div>Trying to callback</div>
+  <v-row justify="center">
+    <v-col md="auto">
+      <div>Trying to callback</div>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts">

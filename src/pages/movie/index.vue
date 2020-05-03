@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <MoviesCard :movies="movies" @move="moveToNew" />
-  </div>
+  <MoviesCard :movies="movies" @move="moveToNew" />
 </template>
 
 <script lang="ts">

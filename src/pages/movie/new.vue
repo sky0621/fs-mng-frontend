@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <MovieForm @submit="save" @cancel="moveToIndex" />
-  </div>
+  <MovieForm @submit="save" @cancel="moveToIndex" />
 </template>
 
 <script lang="ts">
