@@ -1,5 +1,5 @@
 <template>
-  <div>Trying to log in</div>
+  <div>Trying to callback</div>
 </template>
 
 <script lang="ts">
@@ -7,12 +7,8 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({ layout: 'uncertified' })
 export default class LoginPage extends Vue {
-  async beforeCreate() {
-    try {
-      await this.$auth.loginWith('auth0')
-    } catch (err) {
-      console.log(err)
-    }
+  beforeCreate() {
+    this.$router.push('/')
   }
 }
 </script>
