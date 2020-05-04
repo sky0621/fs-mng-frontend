@@ -63,7 +63,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Provide, Vue} from 'nuxt-property-decorator'
+import { Component, Provide, Vue } from 'nuxt-property-decorator'
 
 @Component({})
 export default class DefaultLayout extends Vue {

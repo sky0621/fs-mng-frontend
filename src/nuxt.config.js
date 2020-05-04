@@ -102,7 +102,8 @@ export default {
         domain: process.env.AUTH0_DOMAIN,
         client_id: process.env.AUTH0_CLIENT_ID
       }
-    }
+    },
+    plugins: ['~/plugins/auth.ts']
   },
   router: {
     middleware: ['auth']
