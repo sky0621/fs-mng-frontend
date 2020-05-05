@@ -67,7 +67,9 @@ export default {
         fetchPolicy: 'network-only'
       }
     },
-    errorHandler: '~/plugins/apollo-error-handler.ts'
+    errorHandler: '~/plugins/apollo-error-handler.ts',
+    tokenName: 'auth._token.auth0',
+    authenticationType: '', // default の Bearer だと「Bearer: Bearer」というように重複が起きるため
   },
   /*
    ** vuetify module configuration
@@ -100,7 +102,8 @@ export default {
     strategies: {
       auth0: {
         domain: process.env.AUTH0_DOMAIN,
-        client_id: process.env.AUTH0_CLIENT_ID
+        client_id: process.env.AUTH0_CLIENT_ID,
+        audience: process.env.AUTH0_AUDIENCE,
       }
     },
     plugins: ['~/plugins/auth.ts']
