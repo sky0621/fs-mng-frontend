@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component({ layout: 'uncertified' })
+@Component({ layout: 'unCertified' })
 export default class LoginPage extends Vue {
   async login() {
     try {

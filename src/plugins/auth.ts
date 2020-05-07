@@ -1,12 +1,17 @@
-export default function authHandler({ $auth }: any) {
+import { Auth } from '@nuxtjs/auth'
+
+export default function authHandler({ $auth }: { $auth: Auth }) {
   console.log('authHandler!')
   console.log($auth)
 
-  if (!$auth.loggedIn) {
-    return
-  }
+  $auth.onRedirect(() => {
+    console.log('$auth.onRedirect !!!')
+  })
 
-  console.log('loggedIn !')
-  // const username = $auth.user.username
-  // console.log(username)
+  $auth.onError((error: Error, name: string, endpoint: any) => {
+    console.log('$auth.onError !!!')
+    console.log(error)
+    console.log(name)
+    console.log(endpoint)
+  })
 }

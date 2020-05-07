@@ -15,8 +15,8 @@ export default class IndexPage extends Vue {
     console.log('beforeCreate')
     const refToken = await this.$auth.getRefreshToken('auth0')
     console.log(refToken)
-    const token = await this.$auth.getToken('auth0')
-    console.log(token)
+    // const token = await this.$auth.getToken('auth0')
+    // console.log(token)
   }
 }
 </script>
