@@ -2,7 +2,9 @@ import { Auth } from '@nuxtjs/auth'
 
 export default function authHandler({ $auth }: { $auth: Auth }) {
   console.log('authHandler!')
+  console.log('======================')
   console.log($auth)
+  console.log('======================')
 
   $auth.onRedirect(() => {
     console.log('$auth.onRedirect !!!')

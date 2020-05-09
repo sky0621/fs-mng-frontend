@@ -16,6 +16,6 @@ export default function apolloErrorHandler(
   if (forward) {
     console.log(forward)
   }
-  console.info(nuxtContext)
+  // console.info(nuxtContext)
   nuxtContext.error({ statusCode: 304, message: 'Server error' })
 }

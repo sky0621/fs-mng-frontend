@@ -14,7 +14,7 @@ import { Store } from 'vuex'
 export default class LoginPage extends Vue {
   fetch({ store }: { store: Store<any> }) {
     console.log('====== fetch called =====')
-    // console.log(store)
+    console.log(store)
   }
 
   beforeCreate() {
