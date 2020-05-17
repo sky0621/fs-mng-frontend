@@ -39,7 +39,8 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/toast'
   ],
   /*
    ** Nuxt.js modules
@@ -110,6 +111,10 @@ export default {
   },
   router: {
     middleware: ['auth']
+  },
+  toast: {
+    position: 'top-center',
+    duration: 5000
   },
   /*
    ** Build configuration

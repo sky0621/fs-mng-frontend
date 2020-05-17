@@ -18,7 +18,7 @@ export default class LoginPage extends Vue {
     try {
       await this.$auth.loginWith('auth0')
     } catch (err) {
-      console.log(err)
+      this.$toast.error(err)
     }
   }
 }

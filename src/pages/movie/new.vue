@@ -26,14 +26,13 @@ export default class MovieNewPage extends Vue {
         }
       })
       if (res) {
-        console.log(res)
+        this.$toast.success('動画コンテンツの登録に成功しました。')
         await this.$router.push('/movie')
       } else {
-        console.log('no res')
+        this.$toast.error('動画コンテンツの登録に失敗しました。')
       }
     } catch (err) {
-      // TODO: エラーハンドリング実装！
-      console.log(err)
+      this.$toast.error(err)
     }
   }
 
