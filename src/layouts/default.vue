@@ -99,9 +99,14 @@ export default class DefaultLayout extends Vue {
       to: '/movie'
     },
     {
-      icon: 'mdi-face',
+      icon: 'mdi-eye',
       title: 'Viewer',
       to: '/viewer'
+    },
+    {
+      icon: 'mdi-face',
+      title: 'User',
+      to: '/user'
     }
   ]
 
