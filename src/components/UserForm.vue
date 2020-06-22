@@ -3,7 +3,19 @@
     <v-form>
       <v-row justify="center">
         <v-col md="auto">
-          Name: <v-text-field v-model="input.name"></v-text-field>
+          <v-text-field v-model="input.name" placeholder="Name"></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-col md="auto">
+          <v-text-field
+            v-model="input.email"
+            placeholder="Email"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-col md="auto">
           <v-btn @click="save">登録</v-btn>
           <v-btn @click="cancel">キャンセル</v-btn>
         </v-col>
@@ -19,6 +31,11 @@ import { UserInput } from '~/gql-types'
 
 class UserInputImpl implements UserInput {
   name!: string
+  email: string
+  constructor() {
+    this.name = ''
+    this.email = ''
+  }
 }
 
 @Component({})

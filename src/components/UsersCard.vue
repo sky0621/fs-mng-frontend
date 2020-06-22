@@ -27,7 +27,8 @@ export default class UsersCard extends Vue {
   get headers(): DataTableHeader[] {
     return [
       { text: 'ID', value: 'id' },
-      { text: 'Name', value: 'name' }
+      { text: 'Name', value: 'name' },
+      { text: 'Email', value: 'email' }
     ]
   }
 

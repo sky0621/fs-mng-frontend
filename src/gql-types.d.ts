@@ -125,11 +125,15 @@ export type User = Node & {
   id: Scalars['ID'];
   /** 名称 */
   name: Scalars['String'];
+  /** メールアドレス */
+  email: Scalars['String'];
 };
 
 export type UserInput = {
   /** 名称 */
   name: Scalars['String'];
+  /** メールアドレス */
+  email: Scalars['String'];
 };
 
 export type Viewer = Node & {

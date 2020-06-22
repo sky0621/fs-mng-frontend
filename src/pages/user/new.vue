@@ -19,7 +19,8 @@ export default class UserNewPage extends Vue {
         mutation: CreateUser,
         variables: {
           object: {
-            name: input.name
+            name: input.name,
+            email: input.email
           }
         }
       })
