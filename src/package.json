@@ -23,7 +23,7 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/toast": "^3.3.0",
     "@typescript-eslint/parser": "^2.28.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "nuxt-property-decorator": "^2.5.1",
     "typesync": "^0.6.1"
   },
